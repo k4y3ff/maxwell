@@ -123,3 +123,16 @@ Set the output stream in `config.properties` by setting the `kinesis_stream` pro
 The producer uses the [KPL (Kinesis Producer Library](http://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) and uses the KPL built in configurations.
 Copy `kinesis-producer-library.properties.example` to `kinesis-producer-library.properties` and configure the properties file to your needs.
 The most important option here is configuring the region.
+
+### Google Cloud Pub/Sub Options
+***
+In order to publish to Google Cloud Pub/Sub, you will need to obtain an IAM service account that has been granted the `roles/pubsub.publisher` role.
+
+See the Google Cloud Platform docs for the [latest examples of which permissions are needed](https://cloud.google.com/pubsub/docs/access_control), as well as [how to properly configure service accounts](https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances).
+
+### Google Cloud Pub/Sub Options
+***
+Set the output stream in `config.properties` by setting the `pubsub_project_id` and `pubsub_topic` properties. Optionally configure a dedicated output topic
+for DDL updates by setting the `ddl_pubsub_topic` property.
+
+The producer uses the [Google Cloud Java Library for Pub/Sub](https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-pubsub) and uses its built-in configurations.
